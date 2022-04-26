@@ -26,4 +26,13 @@ class FoodTruck
     @inventory[item] += quant
     end
   end
+
+  def potential_revenue
+    total = 0
+    @inventory.each do |item, quant|
+      num = item.price.slice(1..4)
+      total += num.to_f * quant
+    end
+    total
+  end
 end

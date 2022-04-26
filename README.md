@@ -96,7 +96,7 @@ pry(main)> require './lib/food_truck'
 pry(main)> require './lib/event'
 #=> true
 
-pry(main)> event = Event.new("South Pearl Street Farmers Market")    
+pry(main)> event = Event.new("South Pearl Street Farmers Market") 
 #=> #<Event:0x00007fe134933e20...>
 
 pry(main)> event.name
@@ -120,25 +120,25 @@ pry(main)> item3 = Item.new({name: "Peach-Raspberry Nice Cream", price: "$5.30"}
 pry(main)> item4 = Item.new({name: "Banana Nice Cream", price: "$4.25"})
 #=> #<Item:0x007f9c56343038...>
 
-pry(main)> food_truck1.stock(item1, 35)    
+pry(main)> food_truck1.stock(item1, 35) 
 
-pry(main)> food_truck1.stock(item2, 7)    
+pry(main)> food_truck1.stock(item2, 7)
 
-pry(main)> food_truck2 = FoodTruck.new("Ba-Nom-a-Nom")    
+pry(main)> food_truck2 = FoodTruck.new("Ba-Nom-a-Nom")
 #=> #<FoodTruck:0x00007fe1349bed40...>
 
-pry(main)> food_truck2.stock(item4, 50)    
+pry(main)> food_truck2.stock(item4, 50)
 
 pry(main)> food_truck2.stock(item3, 25)
 
-pry(main)> food_truck3 = FoodTruck.new("Palisade Peach Shack")    
+pry(main)> food_truck3 = FoodTruck.new("Palisade Peach Shack")
 #=> #<FoodTruck:0x00007fe134910650...>
 
-pry(main)> food_truck3.stock(item1, 65)  
+pry(main)> food_truck3.stock(item1, 65)
 
-pry(main)> event.add_food_truck(food_truck1)    
+pry(main)> event.add_food_truck(food_truck1)
 
-pry(main)> event.add_food_truck(food_truck2)    
+pry(main)> event.add_food_truck(food_truck2)
 
 pry(main)> event.add_food_truck(food_truck3)
 

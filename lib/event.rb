@@ -72,7 +72,6 @@ class Event
     @food_trucks.each do |truck|
       truck.inventory.each do |item, quant|
         if !total_inv.empty?
-          binding.pry
         total_inv[item]
         else
         total_inv[item] = {:quantity => quant, :food_trucks => food_trucks_that_sell(item)}

@@ -25,4 +25,60 @@ class Event
     end
     trucks
   end
+
+  def sorted_item_list
+    items = []
+    @food_trucks.each do |truck|
+      truck.inventory.each do |item, quant|
+        items << item if !items.include?(item)
+      end
+    end
+    items.sort_by { |item| item.name }
+  end
+
+  def overstocked_items
+    search = items_at_mult_trucks
+    sum = {}
+    overstocked = []
+    @food_trucks.each do |truck|
+      truck.inventory.each do |item, quant|
+        if search.include?(item)
+          if sum.keys.include?(item)
+            sum[item] += quant
+          else
+            sum[item] = quant
+          end
+        end
+      end
+    end
+    sum.each do |item, quant|
+      overstocked << item if quant > 50
+    end
+    overstocked
+  end
+
+  def items_at_mult_trucks
+    items_at_mult_trucks = []
+    @food_trucks.each do |truck|
+      truck.inventory.each do |item, quant|
+        items_at_mult_trucks << item if food_trucks_that_sell(item).length > 1 && !items_at_mult_trucks.include?(item)
+      end
+    end
+    items_at_mult_trucks
+  end
+
+  def total_inventory
+    total_inv = {}
+    @food_trucks.each do |truck|
+      truck.inventory.each do |item, quant|
+        if !total_inv.empty?
+          binding.pry
+        total_inv[item]
+        else
+        total_inv[item] = {:quantity => quant, :food_trucks => food_trucks_that_sell(item)}
+        end
+      end
+    end
+total_inv
+  end
 end
